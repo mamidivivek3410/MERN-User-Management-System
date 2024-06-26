@@ -1,17 +1,16 @@
-import axios from 'axios';
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSession } from '../../context/userContext';
 
 export function EditPage() {
     const [error, setError] = useState(null);
-    const [success, setSuccess] = useState(null);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { id } = useParams();
     const token = localStorage.getItem('token')
-    const { getUserById, handleUpdate, } = useSession()
+    const { getUserById, handleUpdate, success } = useSession()
     const [user, setUser] = useState(null)
     const navigate = useNavigate()
 
@@ -48,13 +47,13 @@ export function EditPage() {
                             </div>
                             <div className='flex flex-col gap-1'>
                                 <label htmlFor="" className='text-md font-bold'>Email:</label>
-                                <input type="text" placeholder={user.email} className='outline-none border-slate-300 border-[2px] w-full p-2 rounded-md' onChange={(e) => setEmail(e.target.value)} />
+                                <input type="email" required placeholder={user.email} className='outline-none border-slate-300 border-[2px] w-full p-2 rounded-md' onChange={(e) => setEmail(e.target.value)} />
                             </div>
                             <div className='grid grid-cols-4 gap-4'>
                                 <div className='flex flex-col gap-1 col-span-4'>
                                     <div className='flex flex-col gap-1'>
                                         <label htmlFor="" className='text-md font-bold'>Password:</label>
-                                        <input type="text" placeholder='Password' className='outline-none border-slate-300 border-[2px] w-full p-2 rounded-md' onChange={(e) => setPassword(e.target.value)} />
+                                        <input type="password" placeholder='Password' className='outline-none border-slate-300 border-[2px] w-full p-2 rounded-md' onChange={(e) => setPassword(e.target.value)} />
                                     </div>
                                 </div>
 

@@ -12,6 +12,8 @@ const registerUser = async (req,res) => {
     }
 }
 
+
+
 const loginUser = async (req,res) => {
     const {email,password} = req.body;
     try{
@@ -61,7 +63,9 @@ const updateUser = async (req,res) => {
 const deleteUser = async (req,res) => {
     try{
         const id = req.params.id;
-        await User.findByIdAndDelete(id);
+        const user = await User.findById(id)
+        if(!user) return res.json({message:"User not found",status:404})
+        await User.findByIdAndDelete(id)
         res.json({message:"User deleted successfully",status:200})
     }catch(e){
         res.json({message:e.message,status:500})

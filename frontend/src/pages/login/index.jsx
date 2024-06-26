@@ -15,6 +15,10 @@ export function LoginPage() {
             return;
         }
     }, [])
+    const onSubmit = () => {
+        signIn(email,password);
+        
+    }
     return (
         <div className='flex justify-center items-center bg-slate-300 h-screen'>
             <div className=' bg-white min-w-[12em] md:min-w-[42em] min-h-[12em] md:min-h-[24em] flex flex-col p-2 md:p-4 shadow-xl rounded-xl gap-8'>
@@ -24,12 +28,12 @@ export function LoginPage() {
                     {success && <span className='text-green-900 bg-green-200 p-2 rounded-md'>{success}</span>}
                     <div className='flex flex-col gap-1'>
                         <label htmlFor="" className='text-sm md:text-md font-bold'>Email:</label>
-                        <input type="text" className='outline-none border-slate-300 border-[2px] w-full p-[.2em] md:p-2 rounded-md ' placeholder='email' onChange={(e) => setEmail(e.target.value)} />
+                        <input type="email" className='outline-none border-slate-300 border-[2px] w-full p-[.2em] md:p-2 rounded-md ' placeholder='email' onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className='flex flex-col gap-1'>
                         <div className='flex flex-col gap-1'>
                             <label htmlFor="" className='text-md font-bold'>Password:</label>
-                            <input type="text" className='outline-none border-slate-300 border-[2px] w-full p-[.2em] md:p-2 rounded-md ' placeholder='password' onChange={(e) => setPassword(e.target.value)} />
+                            <input type="password" className='outline-none border-slate-300 border-[2px] w-full p-[.2em] md:p-2 rounded-md ' placeholder='password' onChange={(e) => setPassword(e.target.value)} />
                         </div>
                     </div>
 

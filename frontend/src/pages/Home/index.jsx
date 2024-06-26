@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Header, UserCard } from '../../components';
 import { Captlize } from '../../utils';
 import { useSession } from '../../context/userContext';
+import toast, { Toaster } from 'react-hot-toast';
+import axios from 'axios';
 
 export function Home() {
     const { user, users, onDelete, SignOut, token } = useSession();
@@ -11,8 +13,19 @@ export function Home() {
         if (!token) {
             navigate('/login')
         }
+        toast.success('Welcome to Home Page')
     }, [])
-    // console.log(user);
+    useEffect(() => {
+        const fetchEmployee = async () => {
+            try {
+                const res = await axios.get('http://localhost:5000/api/user/getSecondEmployee');
+                console.log(res.data);
+            } catch (e) {
+                console.log(e)
+            }
+        }
+        fetchEmployee()
+    }, [])
     if (!user) {
         return null
     }
@@ -33,6 +46,10 @@ export function Home() {
                             <UserCard user={user} onDelete={onDelete} key={user._id} />
                         ))}
                     </div>
+                </div>
+                <hr />
+                <div>
+
                 </div>
             </>
 

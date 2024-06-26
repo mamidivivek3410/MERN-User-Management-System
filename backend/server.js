@@ -10,11 +10,11 @@ connectDB()
 
 app.use(cors());
 app.use(express.json());
-app.use('/api/user',router)
+app.use('/api/user', router)
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5002;
 
-app.listen(PORT,() => {
+app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 })
 

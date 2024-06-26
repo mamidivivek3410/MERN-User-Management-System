@@ -20,19 +20,19 @@ export function SignUpPage({ history }) {
                     </div>
                     <div className='flex flex-col gap-1'>
                         <label htmlFor="" className='text-md font-bold'>Email:</label>
-                        <input type="text" placeholder='username' className='outline-none border-slate-300 border-[2px] w-full p-2 rounded-md' onChange={(e) => setEmail(e.target.value)} />
+                        <input type="email" placeholder='username' className='outline-none border-slate-300 border-[2px] w-full p-2 rounded-md' onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className='grid grid-cols-4 gap-4'>
                         <div className='flex flex-col gap-1 col-span-2'>
                             <div className='flex flex-col gap-1'>
                                 <label htmlFor="" className='text-md font-bold'>Password:</label>
-                                <input type="text" placeholder='Password' className='outline-none border-slate-300 border-[2px] w-full p-2 rounded-md' onChange={(e) => setPassword(e.target.value)} />
+                                <input type="password" placeholder='Password' className='outline-none border-slate-300 border-[2px] w-full p-2 rounded-md' onChange={(e) => setPassword(e.target.value)} />
                             </div>
                         </div>
                         <div className='flex flex-col gap-1 col-span-2'>
                             <div className='flex flex-col gap-1'>
                                 <label htmlFor="" className='text-md font-bold'>Confirm Password:</label>
-                                <input type="text" placeholder='Re-Enter Password' className='outline-none border-slate-300 border-[2px] w-full p-2 rounded-md' onChange={(e) => setConfirmPassword(e.target.value)} />
+                                <input type="password" placeholder='Re-Enter Password' className='outline-none border-slate-300 border-[2px] w-full p-2 rounded-md' onChange={(e) => setConfirmPassword(e.target.value)} />
                             </div>
                         </div>
                     </div>

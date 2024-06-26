@@ -6,7 +6,7 @@ export const UserCard = ({ user, onDelete }) => {
     const navigate = useNavigate()
     return (
         <div
-            className='shadow-xl bg-white min-w-[10em] max-w-[14em] min-h-[14em] flex flex-col px-4 py-4 rounded-md gap-4 border-slate-400 border-[2px]'>
+            className='shadow-xl bg-white min-w-[10em] max-w-[15em] min-h-[14em] flex flex-col px-4 py-4 rounded-md gap-4 border-slate-400 border-[2px]'>
             {/* <User width={60} height={60} className='text-center mx-auto' onClick={() => navigate(`/user/${user._id}`)} /> */}
             <span className="text-center text-white mx-auto rounded-full p-[1em] bg-gray-800 min-w-[1em] text-xl " >{Avatar(user.name)}</span>
             <div className="border-slate-600 border-t-[1px] w-full" />

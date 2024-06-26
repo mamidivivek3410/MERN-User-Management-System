@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const SessionContext = createContext();
 
@@ -42,7 +43,6 @@ export const SessionProvider = ({ children }) => {
             setError(res.data.message)
         } catch (e) {
             console.log(e);
-
         }
     }
 
@@ -94,6 +94,7 @@ export const SessionProvider = ({ children }) => {
         }
     }
     useEffect(() => {
+        console.log(setError);
         if (token) {
             fetchUsers()
             fetchUser()
@@ -154,7 +155,7 @@ export const SessionProvider = ({ children }) => {
             if (res.data.status === 200) {
                 fetchUsers()
                 fetchUser()
-                navigate('/')
+                setSuccess('User Updated Successfully')
             }
             if (res.data.message === 'jwt expired') {
                 setError('Session Expired')
